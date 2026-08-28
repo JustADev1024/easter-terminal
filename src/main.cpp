@@ -20,6 +20,7 @@ void readFile() {
 
 int main() {
     readFile();
+    std::cout << data["greeting"];
     while(true) {
         std::cout << "> ";
         std::getline(std::cin, input);
