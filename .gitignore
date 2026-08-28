@@ -1,0 +1,12 @@
+build/
+*.o
+*.out
+*.exe
+*.user
+*.tmp
+*.bak
+a.out
+easter-terminal
+compile_commands.json
+.vscode/
+.DS_Store
