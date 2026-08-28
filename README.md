@@ -18,15 +18,6 @@ clang++ -Ilibs/json/include src/main.cpp -o easter-terminal
 ./easter-terminal
 ```
 
-## Commands
-
-| Command | Response |
-|---------|----------|
-| `F` | Press F to pay respects. |
-| `IDK` | IDK what you want to say me... |
-| `exit` | Goodbye! |
-| others | Custom messages from `data/en.json` |
-
 ## Project structure
 
 ```
