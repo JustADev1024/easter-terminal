@@ -19,8 +19,7 @@ void readFile() {
 }
 
 int main() {
-
-
+    readFile();
     while(true) {
         std::cout << "> ";
         std::getline(std::cin, input);
