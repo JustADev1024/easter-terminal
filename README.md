@@ -8,6 +8,8 @@ cd easter-terminal
 mkdir build && cd build
 cmake ..
 make
+cp ./easter-terminal ..
+cd ..
 ./easter-terminal
 ```
 
