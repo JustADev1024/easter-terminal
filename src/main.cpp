@@ -18,9 +18,15 @@ void readFile() {
     }
 }
 
+void help() {
+    for(const auto& key: data.items()) {
+        std::cout << "  " << key.key() << "\n";
+    }
+}
+
 int main() {
     readFile();
-    std::cout << data["greeting"];
+    std::cout << data["greeting"] << "\n";
     while(true) {
         std::cout << "> ";
         std::getline(std::cin, input);
@@ -28,7 +34,10 @@ int main() {
             std::cout << data["exit"].get<std::string>() << "\n";
             break;
         }
-        else if (input != "exit" && data.contains(input)) {
+        else if (input == "help") {
+            help();
+        }
+        else if (data.contains(input)) {
             std::cout << data[input].get<std::string>() << "\n";
         }
         else if (!data.contains(input)) {
