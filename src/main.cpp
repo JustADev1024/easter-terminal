@@ -8,11 +8,23 @@ json data;
 
 std::string input;
 
+void fallBackReadFile() {
+        std::cout << "Falling back to standart data/en.json!\n";
+        std::ifstream file("./data/en.json");
+        if (!file.is_open()) {
+            std::cerr << "Could not open ./data/en.json!\n";
+            exit(1);
+        }
+        else {
+            file >> data;
+        }
+}
 
 void readFile(std::string lang) {
     std::ifstream file("./data/"+ lang + ".json");
     if (!file.is_open()) {
-        std::cout << "Could not open data/" << lang << ".json!";
+        std::cerr << "Could not open data/" << lang << ".json!\n";
+        fallBackReadFile();
     }
     else {
         file >> data;
@@ -26,7 +38,7 @@ void help() {
 }
 
 int main(int argc, char* argv[]) {
-    if (argc > 2) {
+    if (argc >= 2) {
         readFile(argv[1]);
     }
     else {
