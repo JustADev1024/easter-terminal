@@ -8,10 +8,11 @@ json data;
 
 std::string input;
 
-void readFile() {
-    std::ifstream file("./data/en.json");
+
+void readFile(std::string lang) {
+    std::ifstream file("./data/"+ lang + ".json");
     if (!file.is_open()) {
-        std::cout << "Could not open data/en.json!";
+        std::cout << "Could not open data/" << lang << ".json!";
     }
     else {
         file >> data;
@@ -24,9 +25,14 @@ void help() {
     }
 }
 
-int main() {
-    readFile();
-    std::cout << data["greeting"] << "\n";
+int main(int argc, char* argv[]) {
+    if (argc > 2) {
+        readFile(argv[1]);
+    }
+    else {
+        readFile("en");
+    }
+    std::cout << data["greeting"].get<std::string>() << "\n";
     while(true) {
         std::cout << "> ";
         std::getline(std::cin, input);
